@@ -14,9 +14,11 @@ to set the `divisor` member variable.
 
 Questions:
 1) What did you learn from this exercise?
+    การ encapsulate ไม่ให้ส่งค่าจากข้างนอกเข้าไปที่ divisor ตรงๆได้โดยการทำให้ divisor เป็น private และหากต้องการแก้ไข
+    ก็ต้องเรียกฟังก์ชั่น setDivisor เพื่อส่งค่าเข้ามาเท่านั้น
 */
 class SafeDivisor {
-    divisor: number = 1;
+    private divisor: number = 1;
 
     setDivisor(value: number) {
         if (value == 0) {
@@ -36,3 +38,5 @@ function exploit(): number {
     sd.divisor = 0;
     return sd.divide(42); 
 }
+
+console.log(exploit());
